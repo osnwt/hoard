@@ -20,7 +20,7 @@
     "coffee-script": ">= 1.0.1"
   },
   "scripts": {
-    "prepublish" :"coffee -c -l -b -o lib src"
+    "prepublish" :"coffee -c -b -o lib src"
   },
   "licenses": [{"type": "MIT", "url": "https://github.com/cgbystrom/hoard/raw/master/LICENSE"}]
 }
