@@ -591,7 +591,8 @@ fetch = (path, from, to, cb) ->
                                         fs.read fd, seriesBuffer, size1, size2, archive.offset, (err, num) ->
                                             cb(err) if err
                                             unpack(seriesBuffer) # We have read it, go unpack!
-                                            fs.close(fd)
+                                            fs.close fd, (err) ->
+                                                cb(err) if err
                                     catch err
                                         cb(err)
                             catch err
