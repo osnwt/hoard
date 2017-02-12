@@ -5,7 +5,6 @@ Binary = require 'binary'
 underscore = _ = require '../lib/underscore'
 async = require '../lib/async'
 pack = require('../lib/jspack').jspack
-path = require 'path'
 Put = require 'put'
 
 # Monkey patch since modulo operator is broken in JS
@@ -87,7 +86,7 @@ create = (filename, archives, xFilesFactor, aggregationMethod, cb) ->
     # FIXME: Check that values are correctly formatted
     archives.sort (a, b) -> a[0] - b[0]
 
-    if path.existsSync(filename)
+    if fs.existsSync(filename)
         cb new Error('File ' + filename + ' already exists')
 
     oldest = (a[0] * a[1] for a in archives).sort((a) -> Number(a))[0]
